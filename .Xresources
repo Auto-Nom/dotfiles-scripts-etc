@@ -1,0 +1,101 @@
+!Colours
+#define base00 #2C3E50
+#define base01 #34495E
+#define base02 #7F8C8D
+#define base03 #95A5A6
+#define base04 #BDC3C7
+#define base05 #e0e0e0
+#define base06 #f5f5f5
+#define base07 #ECF0F1
+#define base08 #E74C3C
+#define base09 #E67E22
+#define base0A #F1C40F
+#define base0B #2ECC71
+#define base0C #1ABC9C
+#define base0D #3498DB
+#define base0E #9B59B6
+#define base0F #be643c
+#define basetr #00ffffff
+
+*foreground:   base05
+*background:   base00
+*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base09
+*color10:      base01
+*color11:      base02
+*color12:      base04
+*color13:      base06
+*color14:      base0F
+*color15:      base07
+
+
+
+!URxvt
+URxvt.font: xft:Ubuntu Mono:size=12
+URxvt.scrollBar: false
+
+URxvt*background:                     base00
+URxvt*foreground:                     base05
+URxvt*cursorColor:                    base05
+
+URxvt*scrollColor:                    base05
+URxvt*highlightColor:                 base02
+URxvt*highlightTextColor:             base04
+
+URxvt*color0:                         base00
+URxvt*color1:                         base08
+URxvt*color2:                         base0B
+URxvt*color3:                         base0A
+URxvt*color4:                         base0D
+URxvt*color5:                         base0E
+URxvt*color6:                         base0C
+URxvt*color7:                         base05
+URxvt*color8:                         base03
+URxvt*color9:                         base08
+URxvt*color10:                        base0B
+URxvt*color11:                        base0A
+URxvt*color12:                        base0D
+URxvt*color13:                        base0E
+URxvt*color14:                        base0C
+URxvt*color15:                        base07
+
+URxvt*color16:                        base09
+URxvt*color17:                        base0F
+URxvt*color18:                        base01
+URxvt*color19:                        base02
+URxvt*color20:                        base04
+URxvt*color21:                        base06
+
+!Rofi
+
+! State:           'bg',    'fg',    'bgalt', 'hlbg',  'hlfg'
+rofi.color-normal: basetr,  base07, basetr, basetr, base0B
+rofi.color-urgent: basetr, base08, basetr, basetr, base0A
+rofi.color-active: basetr, base0D, basetr, basetr, base09
+!                  'bg',    'border'
+rofi.color-window: #d82C3E50, base07
+
+rofi.width: 100
+rofi.lines: 5
+rofi.columns: 1
+rofi.font: Ubuntu Mono 13
+
+!Border width
+rofi.bw: 0
+rofi.padding: 500
+!Row height
+rofi.eh: 2
+rofi.scrollbar-width: 2
+
+
