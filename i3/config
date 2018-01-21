@@ -5,8 +5,6 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# ~/.config/i3/config
-
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
@@ -20,7 +18,6 @@ set $mod Mod4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-
 font pango:Ubuntu Mono 9
 
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -43,16 +40,11 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+d exec rofi -show window
 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -61,10 +53,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -73,7 +65,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -98,11 +90,17 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Workspaces
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -110,11 +108,11 @@ bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -122,14 +120,19 @@ bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# Default workspaces for applications
 assign [class="Firefox"] $workspace2
-#assign [class="Gnome-terminal"] $workspace3
+assign [class="Audacious"] $workspace10
+assign [class="Steam"] $workspace4
+assign [class="discord"] $workspace5
+
+for_window [class="Steam" title="Friends"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -146,10 +149,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -163,87 +166,62 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-bindsym Print exec gnome-screenshot 
+bindsym Print exec gnome-screenshot
 hide_edge_borders both
 
-# colours
-
-set $base00 #2e2a31
-set $base01 #4b484e
-set $base02 #69666b
-set $base03 #878589
-set $base04 #a5a3a6
-set $base05 #c3c2c4
-set $base06 #e1e0e1
-set $base07 #ffffff
-set $base08 #d8137f
-set $base09 #d65407
-set $base0A #dc8a0e
-set $base0B #17ad98
-set $base0C #149bda
-set $base0D #7864fa
-set $base0E #b33ce8
-set $base0F #d41acd
-
-#set $bg-color 	         #2f343f
-#set $inactive-bg-color   #2f343f
-#set $text-color          #f3f4f5
-#set $inactive-text-color #676E7D
-#set $urgent-bg-color     #E53935
+# Colours
+set $base00 #2C3E50
+set $base01 #34495E
+set $base02 #7F8C8D
+set $base03 #95A5A6
+set $base04 #BDC3C7
+set $base05 #e0e0e0
+set $base06 #f5f5f5
+set $base07 #ECF0F1
+set $base08 #E74C3C
+set $base09 #E67E22
+set $base0A #F1C40F
+set $base0B #2ECC71
+set $base0C #1ABC9C
+set $base0D #3498DB
+set $base0E #9B59B6
+set $base0F #be643c
 
 # window colors
-
-client.focused $base0D $base0D $base00 $base01
-client.unfocused $base01 $base01 $base03 $base01
-client.focused_inactive $base02 $base02 $base03 $base01
-client.urgent $base02 $base08 $base07 $base08
-
-#                       border              background         text                 indicator
-#client.focused          $bg-color           $bg-color          $text-color          #00ff00
-#client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-#client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-#client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
-
+#                       border      background      text        indicator
+client.focused          $base0D     $base0D         $base00     $base01
+client.focused_inactive $base02     $base02         $base03     $base01
+client.unfocused        $base01     $base01         $base03     $base01
+client.urgent           $base02     $base08         $base07     $base08
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        mode hide
-        position top 
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf 
-
+		mode hide
+        position top
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
         colors {
-        	separator $base03
-        	background $base01
-        	statusline $base05
-        	focused_workspace $base0C $base0D $base00
-        	active_workspace $base02 $base02 $base07
-        	inactive_workspace $base01 $base01 $base03
-        	urgent_workspace $base08 $base08 $base07
-    	}
-
-#        colors {
-#			background $bg-color
-#	    	separator #757575
-			#                  border             background         text
-#			focused_workspace  $bg-color          $bg-color          $text-color
-#			inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-#			urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#		}
-
+                separator $base03
+                background $base01
+                statusline $base05
+                focused_workspace $base0C $base0D $base00
+                active_workspace $base02 $base02 $base07
+                inactive_workspace $base01 $base01 $base03
+                urgent_workspace $base08 $base08 $base07
+        }
 }
 bindsym $mod+m bar mode toggle
 bindsym $mod+n bar hidden_state toggle
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
+# Compositor
 exec compton -f
-exec_always feh --bg-scale /home/auto_nom/Pictures/Walls/Wallpaper.png
+
+# Wallpaper
+exec_always feh --bg-scale ~/Pictures/Wallpapers/swordfish.png
+
 
