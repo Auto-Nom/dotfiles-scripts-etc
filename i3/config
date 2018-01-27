@@ -91,12 +91,12 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Workspaces
-set $workspace1 "1: "
+set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
 set $workspace9 "9: "
@@ -129,8 +129,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # Default workspaces for applications
 assign [class="Firefox"] $workspace2
 assign [class="Audacious"] $workspace10
-assign [class="Steam"] $workspace4
-assign [class="discord"] $workspace5
+assign [class="Steam"] $workspace5
+assign [class="discord"] $workspace6
 
 for_window [class="Steam" title="Friends"] floating enable
 
@@ -213,15 +213,28 @@ bar {
 bindsym $mod+m bar mode toggle
 bindsym $mod+n bar hidden_state toggle
 
+# Volume controls
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
 # Media player controls
+bindsym XF86AudioMedia exec audacious
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# X resources isn't being loaded by default?
+exec --no-startup-id xrdb ~/.Xresources
+# Stop screen turning off
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s noblank
+
 # Compositor
-exec compton -f
+exec --no-startup-id compton -f
 
 # Wallpaper
-exec_always feh --bg-scale ~/Pictures/Wallpapers/swordfish.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/swordfish.png
 
 
